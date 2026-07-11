@@ -2,18 +2,20 @@
 
 ## Overview
 
-This section introduces the fundamentals of relational database design by creating related tables for a simple music database.
+This section covers the basics of relational database design by creating tables and different types of relationships between them.
 
 ---
 
-## Concepts Covered
+## Topics Covered
 
 - Creating Tables
 - Primary Keys
 - Auto-generated Identity Columns
 - One-to-Many Relationships
-- Database Modeling
-- Inserting Sample Data
+- One-to-One Relationships
+- Many-to-Many Relationships
+- Compound Primary Keys
+- Basic Schema Design
 
 ---
 
@@ -22,16 +24,8 @@ This section introduces the fundamentals of relational database design by creati
 - Artists
 - Albums
 - Tracks
-
----
-
-## Relationship
-
-Artist (1)
-    │
-    └──────< Album (Many)
-                 │
-                 └──────< Track (Many)
+- Playlists
+- Playlists_Tracks
 
 ---
 
@@ -40,15 +34,16 @@ Artist (1)
 - `01_artists.sql`
 - `02_albums.sql`
 - `03_tracks.sql`
+- `04_one_to_one.sql`
+- `05_many_to_many.sql`
+- `06_compound_primary_keys.sql`
 
 ---
 
-## Learning Outcomes
+## What I Learned
 
-After completing this topic, I learned how to:
-
-- Design related database tables
-- Build One-to-Many relationships
-- Organize data into separate tables
-- Insert and verify sample records
-- Create a basic relational database schema
+- How to design related database tables.
+- How different types of relationships work.
+- How to use junction tables for many-to-many relationships.
+- How compound primary keys work.
+- Basic principles of designing a good database schema.
