@@ -1,0 +1,146 @@
+[1mdiff --git a/JOINs/01_cross_join.sql b/JOINs/01_cross_join.sql[m
+[1mdeleted file mode 100644[m
+[1mindex f342371..0000000[m
+[1m--- a/JOINs/01_cross_join.sql[m
+[1m+++ /dev/null[m
+[36m@@ -1,14 +0,0 @@[m
+[31m--- CROSS JOIN[m
+[31m--- Combines every employee with every warning.[m
+[31m-[m
+[31m-SELECT[m
+[31m-    employees.firstname,[m
+[31m-    employees.lastname,[m
+[31m-    employees.email,[m
+[31m-    warnings.reason,[m
+[31m-    warnings.notes[m
+[31m-FROM employees[m
+[31m-CROSS JOIN warnings[m
+[31m-ORDER BY[m
+[31m-    employees.id ASC,[m
+[31m-    warnings.id ASC;[m
+\ No newline at end of file[m
+[1mdiff --git a/JOINs/02_inner_join.sql b/JOINs/02_inner_join.sql[m
+[1mdeleted file mode 100644[m
+[1mindex 1802f40..0000000[m
+[1m--- a/JOINs/02_inner_join.sql[m
+[1m+++ /dev/null[m
+[36m@@ -1,12 +0,0 @@[m
+[31m--- Practice Question[m
+[31m-[m
+[31m-SELECT[m
+[31m-    employees.id AS Employee_ID,[m
+[31m-    employees.firstname AS First_Name,[m
+[31m-    employees.lastname AS Last_Name[m
+[31m-FROM employees[m
+[31m-INNER JOIN projects[m
+[31m-ON employees.current_project_id = projects.id[m
+[31m-WHERE projects.project_type = 'Software'[m
+[31m-AND projects.priority IN ('MEDIUM', 'HIGH')[m
+[31m-ORDER BY employees.id ASC;[m
+\ No newline at end of file[m
+[1mdiff --git a/JOINs/03_left_join.sql b/JOINs/03_left_join.sql[m
+[1mdeleted file mode 100644[m
+[1mindex fc6544f..0000000[m
+[1m--- a/JOINs/03_left_join.sql[m
+[1m+++ /dev/null[m
+[36m@@ -1,33 +0,0 @@[m
+[31m-/*[m
+[31m-=========================================[m
+[31m-SECTION 9 - JOINS[m
+[31m-Lecture 03: LEFT JOIN[m
+[31m-=========================================[m
+[31m-[m
+[31m-What I learned:[m
+[31m-- LEFT JOIN returns all rows from the left table.[m
+[31m-- Matching rows are returned from the right table.[m
+[31m-- If no matching row exists in the right table,[m
+[31m-  its columns contain NULL.[m
+[31m-[m
+[31m-Syntax:[m
+[31m-[m
+[31m-SELECT columns[m
+[31m-FROM table1[m
+[31m-LEFT JOIN table2[m
+[31m-ON table1.column = table2.column;[m
+[31m-*/[m
+[31m-[m
+[31m-Example:[m
+[31m-[m
+[31m-SELECT[m
+[31m-    employees.id,[m
+[31m-    employees.firstname,[m
+[31m-    employees.lastname,[m
+[31m-    employees.role,[m
+[31m-    projects.project_type,[m
+[31m-    projects.status AS project_status[m
+[31m-FROM employees[m
+[31m-LEFT JOIN projects[m
+[31m-ON employees.current_project_id = projects.id[m
+[31m-ORDER BY employees.id ASC;[m
+[1mdiff --git a/JOINs/04_full_join.sql b/JOINs/04_full_join.sql[m
+[1mdeleted file mode 100644[m
+[1mindex 99ded5e..0000000[m
+[1m--- a/JOINs/04_full_join.sql[m
+[1m+++ /dev/null[m
+[36m@@ -1,31 +0,0 @@[m
+[31m-/*[m
+[31m-=========================================[m
+[31m-SECTION 9 - JOINS[m
+[31m-Lecture 04: FULL JOIN[m
+[31m-=========================================[m
+[31m-[m
+[31m-What I learned:[m
+[31m-- FULL JOIN returns all rows from both tables.[m
+[31m-- Matching rows are combined.[m
+[31m-- If there is no match, the missing side contains NULL.[m
+[31m-[m
+[31m-Syntax:[m
+[31m-[m
+[31m-SELECT columns[m
+[31m-FROM table1[m
+[31m-FULL JOIN table2[m
+[31m-ON table1.column = table2.column;[m
+[31m-*/[m
+[31m-[m
+[31m-Example:[m
+[31m-[m
+[31m-SELECT[m
+[31m-    reviews.author_name AS Author_Name,[m
+[31m-    reviews.review_text AS Review_Text,[m
+[31m-    reviews.rating AS Rating_Number,[m
+[31m-    businesses.name AS Business_Name,[m
+[31m-    businesses.industry_type AS Industry_Type[m
+[31m-FROM businesses[m
+[31m-FULL JOIN reviews[m
+[31m-ON businesses.id = reviews.business_id[m
+[31m-ORDER BY businesses.name ASC, reviews.id DESC;[m
+[1mdiff --git a/JOINs/README.md b/JOINs/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex 1bab8f4..0000000[m
+[1m--- a/JOINs/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,23 +0,0 @@[m
+[31m-# Joins[m
+[31m-[m
+[31m-A JOIN is used to combine data from two or more related tables based on a common column.[m
+[31m-[m
+[31m-## Topics Covered[m
+[31m-[m
+[31m-- CROSS JOIN[m
+[31m-- INNER JOIN[m
+[31m-- LEFT JOIN[m
+[31m-- RIGHT JOIN[m
+[31m-- FULL JOIN[m
+[31m-- Choosing between JOINs and Subqueries[m
+[31m-[m
+[31m-## Learning Outcomes[m
+[31m-[m
+[31m-After completing this section, I learned how to:[m
+[31m-[m
+[31m-- Combine data from multiple related tables[m
+[31m-- Use different types of JOINs[m
+[31m-- Match rows using common columns[m
+[31m-- Include unmatched rows with LEFT, RIGHT, and FULL JOINs[m
+[31m-- Retrieve meaningful information from relational databases[m
+[31m-- Choose between JOINs and subqueries based on the use case[m
+\ No newline at end of file[m
